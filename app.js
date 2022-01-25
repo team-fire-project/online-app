@@ -30,19 +30,29 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => res.send("TEST"));
 
-app.get("/stockhome/categories", async (req, res) => {
-  const categories = await Category.findAll();
-  res.render("categories", { categories });
-});
-
+// A route that users can view all items
 app.get("/stockhome/inventories", async (req, res) => {
   const inventories = await Inventory.findAll();
-  res.render("inventories", { inventories });
+  res.json({inventories});
 });
 
-app.get("/stockhome/users", async (req, res) => {
-  const users = await User.findAll();
-  res.render("users", { users });
+// A route that users can get a specific category of items
+app.get("/stockhome/inventories/categories/:category", async (req, res) => {
+  const categories = req.params.category;
+  const inventories = await Inventory.findAll({
+    where: { category: categories },
+  });
+  res.json({ inventories });
 });
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+// A route that users can view one item
+app.get('/stockhome/inventories/:id', async (req, res) => {
+  const inventoryID = req.params.id;
+  const inventory = await Inventory.findByPk(inventoryID)
+  res.json({inventory});
+});
+
+app.listen(PORT, async () =>{
+  await seed();
+  console.log(`Server started on port ${PORT}`);
+});
