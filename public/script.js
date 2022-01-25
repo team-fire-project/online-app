@@ -9,5 +9,7 @@ const menuLinks = document.getElementsByClassName('.nav-items');
 
 menu.addEventListener('click', function() {
 document.getElementById('nav-menu').classList.toggle('is-active')
+// menu.classList.toggle('fa-times')
+// menu.classList.remove('fa-bars')
 })
 
