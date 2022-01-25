@@ -1,0 +1,16 @@
+{
+  "dataCategories": [
+    {
+      "name": "Electronics"
+    },
+    {
+      "name": "Jewelry"
+    },
+    {
+      "name": "Men's clothing"
+    },
+    {
+      "name": "Women's clothing"
+    }
+  ]
+}
