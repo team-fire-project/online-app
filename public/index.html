@@ -1,13 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;900&display=swap"
       rel="stylesheet"
@@ -16,11 +11,74 @@
       src="https://kit.fontawesome.com/ef29d1f433.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>StockHome Inventory App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
   </head>
-
   <body>
+    <nav>
+      <div class="menu-icon" id="#mobile-menu">
+        <span class="fas fa-bars"></span>
+        <!-- <div class="dropdown">
+            <ul>
+              <li><a href="">All Inventory</a></li>
+              <li><a href="">Electronics</a></li>
+              <li><a href="">Jewelery</a></li>
+              <li><a href="">Men's Clothing</a></li>
+              <li><a href="">Women's Clothing</a></li>
+            </ul>
+        </div> -->
+      </div>
+      <div class="logo">StockHome.</div>
+      <div class="nav-items" id="nav-menu">
+        <li><a href="">All Inventory</a></li>
+        <li><a href="">Electronics</a></li>
+        <li><a href="">Jewelery</a></li>
+        <li><a href="">Men's Clothing</a></li>
+        <li><a href="">Women's Clothing</a></li>
+      </div>
+      <div class="search-icon">
+        <span class="fas fa-search"></span>
+      </div>
+      <div class="cancel-icon">
+        <span class="fas fa-times"></span>
+      </div>
+      <div class="cta-container">
+        <div class="cta">
+          <form action="">
+            <button type="submit" class="fas fa-search"></button>
+            <input
+              type="search"
+              class="search-data"
+              placeholder="Search Items"
+              required
+            />
+          </form>
+        </div>
+        <button class="add-item"><a href="">Add Item</a></button>
+      </div>
+    </nav>
 
+    <section class="container">
+      <h1>All inventory</h1>
+      <div class="card">
+        <div class="inventory">
+          <img src="./images/Rectangle 592.png" alt="" />
+          <span class="item-name">
+            <h2>{{name}}</h2>
+          </span>
+          <br />
+          <span class="item-price">
+            <h3>{{price}}</h3>
+          </span>
+          <br />
+          <span class="item-description">
+            <h3>{{description}}</h3>
+          </span>
+          <br />
+          <a class="button" href="/stockhome/inventories/{{id}}">View detail</a>
+        </div>
+      </div>
+    </section>
+    <script src="./script.js"></script>
   </body>
 </html>
