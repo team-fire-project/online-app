@@ -1,0 +1,22 @@
+<section>
+  <div class="container">
+    {{#each inventories}}
+      <div class="card">
+        <img src={{image}} alt="" />
+        <span class="item-name">
+          <h2>{{name}}</h2>
+        </span>
+        <br />
+        <span class="item-price">
+          <h3>{{price}}</h3>
+        </span>
+        <br />
+        <span class="item-description">
+          <h3>{{description}}</h3>
+        </span>
+        <br />
+        <a class="button" href="/stockhome/inventories/{{id}}">View detail</a>
+      </div>
+    {{/each}}
+  </div>
+</section>
