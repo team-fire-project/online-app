@@ -33,7 +33,7 @@ app.get("/", (req, res) => res.send("TEST"));
 // A route that users can view all items
 app.get("/stockhome/inventories", async (req, res) => {
   const inventories = await Inventory.findAll();
-  res.render("inventories",{inventories});
+  res.render("inventories", { inventories });
 });
 
 // A route that users can get a specific category of items
@@ -42,17 +42,17 @@ app.get("/stockhome/inventories/categories/:category", async (req, res) => {
   const inventories = await Inventory.findAll({
     where: { category: categories },
   });
-  res.json({ inventories });
+  res.render("categories", { inventories });
 });
 
 // A route that users can view one item
-app.get('/stockhome/inventories/:id', async (req, res) => {
+app.get("/stockhome/inventories/:id", async (req, res) => {
   const inventoryID = req.params.id;
-  const inventory = await Inventory.findByPk(inventoryID)
-  res.render("inventory",{inventory});
+  const inventory = await Inventory.findByPk(inventoryID);
+  res.render("inventory", { inventory });
 });
 
-app.listen(PORT, async () =>{
+app.listen(PORT, async () => {
   await seed();
   console.log(`Server started on port ${PORT}`);
 });
