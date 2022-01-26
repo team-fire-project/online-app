@@ -58,9 +58,12 @@ app.get("/stockhome/add-inventory-form", (req, res) => {
 });
 app.post("/stockhome/add-inventory", async (req, res) => {
   const newInventory = await Inventory.create(req.body);
+  // const counts = newInventory.counts;
   const foundInventory = await Inventory.findByPk(newInventory.id);
+  foundInventory.counts = newInventory.counts;
+
   if (foundInventory && res.status(200)) {
-    res.send("Inventory added successfully!");
+    res.send(`Inventory added successfully!`);
   } else {
     res.send("Something went wrong, please try again...");
   }
