@@ -1,9 +1,8 @@
-<section class="container">
-  <h1>All inventory</h1>
-  <div class="card ">
+<section>
+  <div class="container">
     {{#each inventories}}
-      <div class="inventory block">
-          <img src="{{image}}" alt="" />
+      <div class="card">
+        <img src={{image}} alt="This is an image" />
         <span class="item-name">
           <h2>{{name}}</h2>
         </span>
