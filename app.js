@@ -66,6 +66,13 @@ app.post("/stockhome/add-inventory", async (req, res) => {
   }
 });
 
+app.delete("/stockhome/inventories/:id", async (req, res) => {
+  const deleteditem = await Inventory.destroy({
+    where: { id: req.params.id },
+  });
+  res.send({deleteditem});
+});
+
 app.listen(PORT, async () => {
   await seed();
   console.log(`Server started on port ${PORT}`);

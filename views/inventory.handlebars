@@ -9,15 +9,14 @@
       </span>
       <div class="overviews">
         <span class="item-overview">
-          <h3>{{inventory.price}}</h3>
+          <h3>${{inventory.price}}</h3>
         </span>
         <span class="item-overview">
           <p>{{inventory.description}}</p>
         </span>
-        <br />
-        <div class="item-overview ctas">
+        <div class="item-overview">
           <button><i class="fas fa-pencil-alt"></i></button>
-          <button><i class="far fa-trash-alt"></i></button>
+          <button id="delete-item"><i class="far fa-trash-alt"></i></button>
         </div>
       </div>
     </div>
@@ -26,3 +25,5 @@
     <a class="" href="/stockhome/inventories/">View All Inventory</a>
   </button>
 </section>
+
+<script src="/delete-item.js"></script>
