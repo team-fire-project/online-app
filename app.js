@@ -52,6 +52,11 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   res.render("inventory", { inventory });
 });
 
+// A route for Help center page
+app.get("/stockhome/helpcenter",async(req,res) =>{
+  res.send("Please contact us through our email if you have any questions: stockhome@gmail.com")
+});
+
 // Creating new inventory item using handlebars form
 app.get("/stockhome/add-inventory-form", (req, res) => {
   res.render("addInventoryForm");
@@ -77,7 +82,6 @@ app.put("/stockhome/inventories/:id" , async(req,res) =>{
   });
   res.send({ updatedInventory })
 });
-
 
 app.listen(PORT, async () => {
   await seed();
