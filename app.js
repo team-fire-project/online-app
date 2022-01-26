@@ -66,6 +66,16 @@ app.post("/stockhome/add-inventory", async (req, res) => {
   }
 });
 
+//Updating the inventory counts for the specific inventory by clicking the plus or minus button
+app.put("/stockhome/inventories/:id" , async(req,res) =>{
+  const inventoryID = req.params.id;
+  const updatedInventory = Inventory.update(req.body, {
+    where:{ id: inventoryID}
+  });
+  res.send({ updatedInventory })
+});
+
+
 app.listen(PORT, async () => {
   await seed();
   console.log(`Server started on port ${PORT}`);

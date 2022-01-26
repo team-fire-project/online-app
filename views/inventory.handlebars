@@ -7,10 +7,30 @@
   <span class="item-price">
     <h3>${{inventory.price}}</h3>
   </span>
+  <span class="item-counts" >
+    <h3 id="inventory-counter">Counts: <span id="inventory-counts">{{inventory.counts}}</span></h3>
+  </span>
   <br />
   <span class="item-description">
     <h3>{{inventory.description}}</h3>
   </span>
   <br />
+  {{! Counts Buttons (plus & minus) }}
+  <button >
+    <span>
+      <img id="minus-count-button" class="count-button" src="/images/minus_count_button.jpg"/>
+    </span>
+  </button>
+  <button >
+    <span>
+      <img id="plus-count-button" class="count-button" src="/images/plus_count_button.jpg"/>
+    </span>
+  </button>
+</div>
+<div>
   <a class="button" href="/stockhome/inventories/">View All Inventory</a>
 </div>
+
+{{!-- Scripts for buttons --}}
+<script src="/minus-count-button.js"></script>
+<script src="/plus-count-button.js"></script>
