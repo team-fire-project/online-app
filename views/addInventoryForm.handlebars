@@ -1,0 +1,47 @@
+<form action="/stockhome/add-inventory" method="post">
+  <h1>Add Inventory Item</h1>
+  {{! Item Name }}
+  <label for="name">Item Name</label>
+  <br />
+  <input type="text" id="add-form-inventory-name" name="name" required />
+  <br />
+  {{! Category }}
+  <label for="category">Category</label>
+  <br />
+  <input
+    type="text"
+    id="add-form-inventory-category"
+    name="category"
+    required
+  />
+  <br />
+  {{! Item Price }}
+  <label for="price">Item Price</label>
+  <br />
+  <input type="number" id="add-form-inventory-price" name="price" required />
+  <br />
+  {{! Inventory Count }}
+  <label for="count">Inventory Count</label>
+  <br />
+  <input type="number" id="add-form-inventory-count" name="count" required />
+  <br />
+  {{! Image URL }}
+  <label for="image">Image URL</label>
+  <br />
+  <input type="url" id="add-form-inventory-image" name="image" required />
+  <br />
+  {{! Description }}
+  <label for="description">Description</label>
+  <br />
+  <input
+    type="text"
+    id="add-form-inventory-description"
+    name="description"
+    required
+  />
+  <br />
+
+  {{! Buttons }}
+  <a class="" href="/stockhome/inventories/">Cancel</a>
+  <button type="submit">Submit</button>
+</form>
