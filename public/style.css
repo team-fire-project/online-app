@@ -1,3 +1,4 @@
+/* General CSS */
 :root {
   --darkgray: #212329;
   --brightred: #f9423d;
@@ -19,6 +20,7 @@ body {
   background-color: #1a444f;
 }
 
+/* Navbar */
 nav {
   background: var(--white);
   display: flex;
@@ -140,11 +142,29 @@ nav .nav-items {
   padding: 0 0 0 40px;
 }
 
+/* Page container */
+#page-container {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Footer */
+#footer {
+  position: relative;
+  bottom: 0;
+  background: #76d988;
+  height: 100px;
+  width: 100vw;
+  margin-top: 120px;
+  color: #444;
+}
+
+/* Container */
 .container {
   display: flex;
   flex-direction: column;
   padding: 4rem 5rem;
-  height: 100%;
+  height: auto;
   align-content: center;
 }
 
@@ -185,7 +205,6 @@ nav .nav-items {
   flex-direction: column;
   width: 30vw;
   float: left;
-  
 }
 
 .inventory span h1,
@@ -195,6 +214,12 @@ nav .nav-items {
   font-weight: 600;
 }
 
+/* display none */
+.display-none{
+  display:none;
+}
+
+/* Responsive CSS */
 @media (max-width: 1245px) {
   nav {
     padding: 0;
