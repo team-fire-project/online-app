@@ -52,6 +52,20 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   res.render("inventory", { inventory });
 });
 
+// Creating new inventory item using handlebars form
+app.get("/stockhome/add-inventory-form", (req, res) => {
+  res.render("addInventoryForm");
+});
+app.post("/stockhome/add-inventory", async (req, res) => {
+  const newInventory = await Inventory.create(req.body);
+  const foundInventory = await Inventory.findByPk(newInventory.id);
+  if (foundInventory && res.status(200)) {
+    res.send("Inventory added successfully!");
+  } else {
+    res.send("Something went wrong, please try again...");
+  }
+});
+
 app.listen(PORT, async () => {
   await seed();
   console.log(`Server started on port ${PORT}`);
