@@ -1,3 +1,4 @@
+/* General CSS */
 :root {
   --darkgray: #212329;
   --brightred: #f9423d;
@@ -20,6 +21,7 @@ body {
   background-color: #1a444f;
 }
 
+/* Navbar */
 nav {
   background: var(--white);
   display: flex;
@@ -141,11 +143,29 @@ nav .nav-items {
   padding: 0 0 0 40px;
 }
 
+/* Page container */
+#page-container {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Footer */
+#footer {
+  position: relative;
+  bottom: 0;
+  background: #76d988;
+  height: 100px;
+  width: 100vw;
+  margin-top: 120px;
+  color: #444;
+}
+
+/* Container */
 .container {
   display: flex;
   flex-direction: column;
   padding: 4rem 5rem;
-  height: 100%;
+  height: auto;
   align-content: center;
 }
 
@@ -195,6 +215,7 @@ nav .nav-items {
   font-weight: 600;
 }
 
+/* Inventory detail page */
 .item-container {
   height: 100%;
   display: flex;
@@ -289,6 +310,12 @@ nav .nav-items {
   text-decoration: none;
 }
 
+/* display none */
+.display-none{
+  display:none;
+}
+
+/* Responsive CSS */
 @media (min-width: 1140px) {
   .item-card {
     height: 25rem;

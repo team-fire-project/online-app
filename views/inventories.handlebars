@@ -1,9 +1,9 @@
 <section class="container">
   <h1>All inventory</h1>
-  <div class="card ">
+  <div class="card">
     {{#each inventories}}
       <div class="inventory block">
-          <img src="{{image}}" alt="" />
+        <img src="{{image}}" alt="" />
         <span class="item-name">
           <h2>{{name}}</h2>
         </span>
@@ -11,8 +11,12 @@
         <span class="item-price">
           <h3>${{price}}</h3>
         </span>
+        <span class="item-counts">
+          <h3 id="inventory-counter">Counts:
+            <span id="inventory-counts">{{counts}}</span></h3>
+        </span>
         <br />
-        <span class="item-description">
+        <span class="item-description display-none">
           <h3>{{description}}</h3>
         </span>
         <br />

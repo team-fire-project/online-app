@@ -1,4 +1,6 @@
+
 <section class="item-container">
+  <h1>{{inventory.category}}</h1>
   <div class="item-card">
     <div class="img-section">
       <img src="{{inventory.image}}" alt="" />
@@ -12,12 +14,37 @@
           <h3>${{inventory.price}}</h3>
         </span>
         <span class="item-overview">
+          <h3 id="inventory-counter">Counts:
+            <span id="inventory-counts">{{inventory.counts}}</span></h3>
+        </span>
+        <span class="item-overview">
           <p>{{inventory.description}}</p>
         </span>
-        <div class="item-overview">
-          <button><i class="fas fa-pencil-alt"></i></button>
-          <button id="delete-item"><i class="far fa-trash-alt"></i></button>
+        <br />
+        <div class="item-overview ctas">
+          <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i class="fas fa-pencil-alt"></i></a></button>
+          <button><i class="far fa-trash-alt"></i></button>
+          {{! Counts Buttons (plus & minus) }}
+          <button>
+            <span>
+              <img
+                id="minus-count-button"
+                class="count-button"
+                src="/images/minus_count_button.jpg"
+              />
+            </span>
+          </button>
+          <button>
+            <span>
+              <img
+                id="plus-count-button"
+                class="count-button"
+                src="/images/plus_count_button.jpg"
+              />
+            </span>
+          </button>
         </div>
+
       </div>
     </div>
   </div>
@@ -26,4 +53,6 @@
   </button>
 </section>
 
-<script src="/delete-item.js"></script>
+{{! Scripts for buttons }}
+<script src="/minus-count-button.js"></script>
+<script src="/plus-count-button.js"></script>
