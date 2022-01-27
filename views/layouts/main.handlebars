@@ -29,7 +29,7 @@
             </ul>
         </div> -->
       </div>
-      <div class="logo">StockHome.</div>
+      <div class="logo"> <a href="/stockhome/inventories/">StockHome.</a></div>
       <div class="nav-items" id="nav-menu">
         <li><a href="/stockhome/inventories/">All Inventory</a></li>
         <li><a
@@ -62,12 +62,27 @@
             />
           </form>
         </div>
-        <button class="add-item"><a href="">Add Item</a></button>
+        <button class="add-item"><a href="/stockhome/add-inventory-form">Add Item</a></button>
       </div>
     </nav>
-
     <script src="/script.js"></script>
 
-    {{{body}}}
+    <div id="page-container">
+      {{! Individual page content }}
+      {{{body}}}
+
+      {{! Footer }}
+      <footer id="footer">
+        <div class="logo"> <a href="/stockhome/inventories/">StockHome.</a></div>
+        <hr />
+        <div>
+          <h6 class="copy-right">© 2022 StockHome. All rights reserved</h6>
+          <a class="button" href="/stockhome/helpcenter"><h6>Help Center</h6></a>
+
+        </div>
+      </footer>
+    </div>
+
+
   </body>
 </html>

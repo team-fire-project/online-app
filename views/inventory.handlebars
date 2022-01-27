@@ -1,16 +1,58 @@
-<div class="card">
-  <img src={{inventory.image}} alt="" />
-  <span class="item-name">
-    <h2>{{inventory.name}}</h2>
-  </span>
-  <br />
-  <span class="item-price">
-    <h3>${{inventory.price}}</h3>
-  </span>
-  <br />
-  <span class="item-description">
-    <h3>{{inventory.description}}</h3>
-  </span>
-  <br />
-  <a class="button" href="/stockhome/inventories/">View All Inventory</a>
-</div>
+
+<section class="item-container plainbackground">
+  <h1>{{inventory.category}}</h1>
+  <div class="item-card">
+    <div class="img-section">
+      <img src="{{inventory.image}}" alt="" />
+    </div>
+    <div class="info">
+      <span class="item-name">
+        <h2>{{inventory.name}}</h2>
+      </span>
+      <div class="overviews">
+        <span class="item-overview">
+          <h3>${{inventory.price}}</h3>
+        </span>
+        <span class="item-overview">
+          <h3 id="inventory-counter">Counts:
+            <span id="inventory-counts">{{inventory.counts}}</span></h3>
+        </span>
+        <span class="item-overview">
+          <p>{{inventory.description}}</p>
+        </span>
+        <br />
+        <div class="item-overview ctas">
+          <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i class="fas fa-pencil-alt"></i></a></button>
+          <button><i class="far fa-trash-alt"></i></button>
+          {{! Counts Buttons (plus & minus) }}
+          <button>
+            <span>
+              <img
+                id="minus-count-button"
+                class="count-button"
+                src="/images/minus_count_button.jpg"
+              />
+            </span>
+          </button>
+          <button>
+            <span>
+              <img
+                id="plus-count-button"
+                class="count-button"
+                src="/images/plus_count_button.jpg"
+              />
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <button class="view-all">
+    <a class="" href="/stockhome/inventories/">View All Inventory</a>
+  </button>
+</section>
+
+{{! Scripts for buttons }}
+<script src="/minus-count-button.js"></script>
+<script src="/plus-count-button.js"></script>

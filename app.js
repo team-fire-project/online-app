@@ -52,18 +52,54 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   res.render("inventory", { inventory });
 });
 
+// A route for Help center page
+app.get("/stockhome/helpcenter",async(req,res) =>{
+  res.send("Please contact us through our email if you have any questions: stockhome@gmail.com")
+});
+
 // Creating new inventory item using handlebars form
 app.get("/stockhome/add-inventory-form", (req, res) => {
   res.render("addInventoryForm");
 });
 app.post("/stockhome/add-inventory", async (req, res) => {
   const newInventory = await Inventory.create(req.body);
+  // const counts = newInventory.counts;
   const foundInventory = await Inventory.findByPk(newInventory.id);
+  foundInventory.counts = newInventory.counts;
+
   if (foundInventory && res.status(200)) {
-    res.send("Inventory added successfully!");
+    res.send(`Inventory added successfully!`);
   } else {
     res.send("Something went wrong, please try again...");
   }
+});
+
+app.delete("/stockhome/inventories/:id", async (req, res) => {
+  const deleteditem = await Inventory.destroy({
+    where: { id: req.params.id },
+  });
+  res.send({deleteditem});
+});
+//Updating the inventory counts for the specific inventory by clicking the plus or minus button
+app.put("/stockhome/inventories/:id" , async(req,res) =>{
+  const inventoryID = req.params.id;
+  const updatedInventory = Inventory.update(req.body, {
+    where:{ id: inventoryID}
+  });
+  res.send({ updatedInventory })
+});
+
+// Updating the inventory by clicking the edit button
+app.get("/stockhome/edit-inventory-form/:id", async(req, res) => {
+  const inventory = await Inventory.findByPk(req.params.id)
+  res.render("editInventory",{inventory});
+});
+app.put("/stockhome/edit-inventory/:id", async (req, res) => {
+  const inventoryID = req.params.id;
+  const newInventory = await Inventory.update(req.body, {
+    where: { id: inventoryID },
+  });
+  res.send("Succesfully updated your inventory item!");
 });
 
 app.listen(PORT, async () => {
