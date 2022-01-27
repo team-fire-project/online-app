@@ -161,6 +161,10 @@ nav .nav-items {
 }
 
 /* Container */
+.plainbackground {
+  background-color: #fff;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -304,8 +308,8 @@ nav .nav-items {
 }
 
 /* display none */
-.display-none{
-  display:none;
+.display-none {
+  display: none;
 }
 
 /* Responsive CSS */
