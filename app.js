@@ -66,7 +66,7 @@ app.get("/stockhome/inventories/categories/:category", async (req, res) => {
   const inventories = await Inventory.findAll({
     where: { category: categories },
   });
-  res.render("categories", { inventories });
+  res.render("categories", { inventories,categories });
 });
 
 // A route that users can view one item
@@ -80,7 +80,7 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   if (userRole == "Admin") {
     admin = true;
   }
-
+console.log(admin)
   res.render("inventory", { inventory , admin });
 });
 
@@ -212,14 +212,23 @@ app.post("/stockhome/signin", async (req, res) => {
         res.render("signinForm", { alert });
         // Else sign in succeeds
       } else {
-        // Sroting user id and emailaddress in session data
+        // Sorting user id and emailaddress in session data
         req.session.userID = thisUser.id;
         req.session.emailaddress = thisUser.emailaddress;
+        req.session.role = thisUser.role;
+
 
         res.redirect("/stockhome/inventories");
       }
     });
   }
+});
+
+// User logging out
+app.get("/stockhome/logout", (req, res) => {
+  req.session.destroy(function (err) {
+    res.redirect("/stockhome");
+  });
 });
 
 app.listen(PORT, async () => {
