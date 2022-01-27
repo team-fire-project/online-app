@@ -1,0 +1,50 @@
+{{!-- <form action="/stockhome/edit-inventory/{{inventory.id}}" method="put"> --}}
+<form onsubmit="editItem({{inventory.id}})">
+  <h1>Edit Inventory Item</h1>
+  {{! Item Name }}
+  <label for="name">Item Name</label>
+  <br />
+  <input type="text" id="edit-form-inventory-name" name="name" required />
+  <br />
+  {{! Category }}
+  <label for="category">Category</label>
+  <br />
+  <input
+    type="text"
+    id="edit-form-inventory-category"
+    name="category"
+    required
+  />
+  <br />
+  {{! Item Price }}
+  <label for="price">Item Price</label>
+  <br />
+  <input type="number" id="edit-form-inventory-price" name="price" required />
+  <br />
+  {{! Inventory Count }}
+  <label for="counts">Inventory Count</label>
+  <br />
+  <input type="number" id="edit-form-inventory-count" name="counts" required />
+  <br />
+  {{! Image URL }}
+  <label for="image">Image URL</label>
+  <br />
+  <input type="url" id="edit-form-inventory-image" name="image" required />
+  <br />
+  {{! Description }}
+  <label for="description">Description</label>
+  <br />
+  <input
+    type="text"
+    id="edit-form-inventory-description"
+    name="description"
+    required
+  />
+  <br />
+
+  {{! Buttons }}
+  <a class="" href="/stockhome/inventories/">Cancel</a>
+  <button type="submit">Submit</button>
+</form>
+
+<script src="/edit-inventory-form.js"></script>

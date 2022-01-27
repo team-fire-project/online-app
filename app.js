@@ -83,6 +83,19 @@ app.put("/stockhome/inventories/:id" , async(req,res) =>{
   res.send({ updatedInventory })
 });
 
+// Updating the inventory by clicking the edit button
+app.get("/stockhome/edit-inventory-form/:id", async(req, res) => {
+  const inventory = await Inventory.findByPk(req.params.id)
+  res.render("editInventory",{inventory});
+});
+app.put("/stockhome/edit-inventory/:id", async (req, res) => {
+  const inventoryID = req.params.id;
+  const newInventory = await Inventory.update(req.body, {
+    where: { id: inventoryID },
+  });
+  res.send("Succesfully updated your inventory item!");
+});
+
 app.listen(PORT, async () => {
   await seed();
   console.log(`Server started on port ${PORT}`);

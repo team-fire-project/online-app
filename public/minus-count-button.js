@@ -2,7 +2,13 @@ const minusButton = document.getElementById("minus-count-button");
 
 minusButton.addEventListener("click", async () => {
   let currentCounts = parseInt(inventoryCounter.innerHTML);
-  currentCounts--;
+
+  if (currentCounts < 1) {
+    currentCounts = 0;
+  } else {
+    currentCounts--;
+  }
+
   inventoryCounter.innerHTML = currentCounts;
 
   if (!currentCounts) return;

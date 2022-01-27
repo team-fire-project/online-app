@@ -6,7 +6,13 @@ const inventoryID = window.location.pathname.split(
 
 plusButton.addEventListener("click", async () => {
   let currentCounts = parseInt(inventoryCounter.innerHTML);
-  currentCounts++;
+
+  if (currentCounts < 0) {
+    currentCounts = 0;
+  } else {
+    currentCounts++;
+  }
+
   inventoryCounter.innerHTML = currentCounts;
 
   if (!currentCounts) return;
