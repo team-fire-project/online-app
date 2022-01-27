@@ -258,12 +258,12 @@ nav .nav-items {
 
 .item-overview p {
   font-size: 1rem;
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   margin: 0 auto;
 }
 
 .item-overview h3 {
-  color: #D0F9CF;
+  color: #d0f9cf;
 }
 
 .item-overview {
@@ -298,9 +298,20 @@ nav .nav-items {
   }
 
   .img-section {
-    background-size: cover;
     height: 100%;
-    width: 80%;
+    width: 100%;
+    background: linear-gradient(rgb(45, 0, 128), rgb(42, 75, 55));
+    background-size: cover;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .img-section img {
+    width: 350px;
+    padding: 0.2rem;
+    object-fit: cover;
   }
 
   .info {
@@ -337,6 +348,14 @@ nav .nav-items {
   nav {
     padding: 0;
     justify-content: center;
+  }
+
+  .container .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr ;
+    justify-items: center;
+    column-gap: 20px;
   }
 
   nav .logo {
