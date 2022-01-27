@@ -44,7 +44,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
+app.get("/stockhome/", (req, res) => {
   res.redirect("/stockhome/signin");
 });
 
@@ -73,7 +73,15 @@ app.get("/stockhome/inventories/categories/:category", async (req, res) => {
 app.get("/stockhome/inventories/:id", async (req, res) => {
   const inventoryID = req.params.id;
   const inventory = await Inventory.findByPk(inventoryID);
-  res.render("inventory", { inventory });
+
+  // Get different UI depends on different roles
+  const userRole = req.session.role;
+  let admin = false;
+  if (userRole == "Admin") {
+    admin = true;
+  }
+
+  res.render("inventory", { inventory , admin });
 });
 
 // A route for Help center page
@@ -140,6 +148,7 @@ app.post("/stockhome/signup", async (req, res) => {
   const emailaddress = req.body.emailaddress;
   const password = req.body.password;
   const confirm = req.body.confirm;
+  const userRole = req.body.role;
 
   // Search for duplicate
   const findDuplicate = await User.findOne({
@@ -160,6 +169,7 @@ app.post("/stockhome/signup", async (req, res) => {
     // Using bcrypt to make sure the user password is secure
     bcrypt.hash(password, saltRounds, async (err, hash) => {
       const newUser = await User.create({
+        role:userRole,
         emailaddress: emailaddress,
         password: hash,
       });
@@ -167,6 +177,7 @@ app.post("/stockhome/signup", async (req, res) => {
       // Sorting user id and emailaddress in session data
       req.session.userID = newUser.id;
       req.session.emailaddress = newUser.emailaddress;
+      req.session.role = userRole
 
       // Render signin form directly
       res.redirect("/stockhome/signin");

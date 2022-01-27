@@ -1,4 +1,3 @@
-
 <section class="item-container plainbackground">
   <h1>{{inventory.category}}</h1>
   <div class="item-card">
@@ -21,29 +20,34 @@
           <p>{{inventory.description}}</p>
         </span>
         <br />
-        <div class="item-overview ctas">
-          <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i class="fas fa-pencil-alt"></i></a></button>
-          <button><i class="far fa-trash-alt"></i></button>
-          {{! Counts Buttons (plus & minus) }}
-          <button>
-            <span>
-              <img
-                id="minus-count-button"
-                class="count-button"
-                src="/images/minus_count_button.jpg"
-              />
-            </span>
-          </button>
-          <button>
-            <span>
-              <img
-                id="plus-count-button"
-                class="count-button"
-                src="/images/plus_count_button.jpg"
-              />
-            </span>
-          </button>
-        </div>
+
+        {{#if admin}}
+          {{! All buttons }}
+          <div class="item-overview ctas">
+            <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i
+                  class="fas fa-pencil-alt"
+                ></i></a></button>
+            <button><i class="far fa-trash-alt"></i></button>
+            <button>
+              <span>
+                <img
+                  id="minus-count-button"
+                  class="count-button"
+                  src="/images/minus_count_button.jpg"
+                />
+              </span>
+            </button>
+            <button>
+              <span>
+                <img
+                  id="plus-count-button"
+                  class="count-button"
+                  src="/images/plus_count_button.jpg"
+                />
+              </span>
+            </button>
+          </div>
+        {{/if}}
 
       </div>
     </div>
