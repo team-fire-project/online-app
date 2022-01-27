@@ -74,6 +74,12 @@ app.post("/stockhome/add-inventory", async (req, res) => {
   }
 });
 
+app.delete("/stockhome/inventories/:id", async (req, res) => {
+  const deleteditem = await Inventory.destroy({
+    where: { id: req.params.id },
+  });
+  res.send({deleteditem});
+});
 //Updating the inventory counts for the specific inventory by clicking the plus or minus button
 app.put("/stockhome/inventories/:id" , async(req,res) =>{
   const inventoryID = req.params.id;
