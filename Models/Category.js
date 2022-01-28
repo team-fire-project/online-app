@@ -8,6 +8,7 @@ Category.init(
   },
   {
     sequelize: db,
+    timestamps: false,
   }
 );
 

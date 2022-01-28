@@ -20,6 +20,8 @@
           <p>{{inventory.description}}</p>
         </span>
         <br />
+        {{#if admin}}
+          {{! All buttons }}
         <div class="ctas">
           <div>
             <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i
@@ -38,6 +40,7 @@
           </div>
         </div>
         {{! delete button }}
+        {{!-- delete modal --}}
         <div class="modal-container" id="delete-confirmation">
           <div class="modal">
             <section>
@@ -54,6 +57,7 @@
             </section>
           </div>
         </div>
+        {{/if}}
       </div>
     </div>
   </div>

@@ -43,14 +43,24 @@
         <li><a
             href="/stockhome/inventories/categories/women's%20clothing"
           >Women's Clothing</a></li>
-        <li class="add-item-list"><a href="/stockhome/add-inventory-form">Add Item</a></li>
+        {{#if guest}}
+          <li class="add-item-list"><a href="/stockhome/signin">Login</a></li>
+        {{/if}}
+        {{#if admin}}
+          <li class="add-item-list"><a href="/stockhome/add-inventory-form">Add
+              Item</a></li>
+          <li class="add-item-list"><a href="/stockhome/logout">Sign out</a></li>
+        {{/if}}
+        {{#if shopper}}
+          <li class="add-item-list"><a href="/stockhome/logout">Sign out</a></li>
+        {{/if}}
       </div>
-      {{!-- <div class="search-icon">
+      {{! <div class="search-icon">
         <span class="fas fa-search"></span>
       </div>
       <div class="cancel-icon">
         <span class="fas fa-times"></span>
-      </div> --}}
+      </div> }}
       <div class="cta-container">
         <div class="cta">
           <form action="">
@@ -63,8 +73,22 @@
             />
           </form>
         </div>
-        <button class="add-item"><a href="/stockhome/add-inventory-form">Add Item</a></button>
+        {{#if guest}}
+          <button class="add-item"><a
+              href="/stockhome/signin"
+            >Login</a></button>
+        {{/if}}
+        {{#if admin}}
+          <button class="add-item"><a href="/stockhome/add-inventory-form">Add
+              Item</a></button>
+          <button class="add-item"><a href="/stockhome/logout">Sign out</a></button>
+        {{/if}}
+        {{#if shopper}}
+          <button class="add-item"><a href="/stockhome/logout">Sign out</a></button>
+        {{/if}}
+
       </div>
+
     </nav>
     <script src="/script.js"></script>
 
@@ -74,9 +98,10 @@
 
       {{! Footer }}
       <footer id="footer">
-        <div class="logo"> <a href="/stockhome/inventories/">StockHome.</a></div>
+        <div class="logo">
+          <a href="/stockhome/inventories/">StockHome.</a></div>
         <div class="line-break"></div>
-       
+
         <div class="footer-info">
           <h6 class="copy-right">© 2022 StockHome. All rights reserved</h6>
           <a class="button" href="/stockhome/helpcenter"><h6>Help Center</h6></a>
