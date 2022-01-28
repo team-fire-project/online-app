@@ -8,6 +8,4 @@ Category.belongsTo(User);
 Category.hasMany(Inventory);
 Inventory.belongsTo(Category);
 
-// console.log("Inventory class:", Inventory.category);
-
 module.exports = { Inventory, Category, User };

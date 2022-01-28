@@ -5,11 +5,18 @@ class User extends Model {}
 User.init(
   {
     role: DataTypes.STRING,
-    emailaddress: DataTypes.STRING,
-    password: DataTypes.STRING,
+    emailaddress: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize: db,
+    timestamps: false,
   }
 );
 

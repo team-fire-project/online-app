@@ -1,0 +1,44 @@
+{{! Left div : SignIn form }}
+<h2>Welcome Back!</h2>
+<form action="/stockhome/signin" method="post">
+  <label for="emailaddress">Email address</label>
+  <input
+    type="text"
+    id="emailaddress"
+    name="emailaddress"
+    placeholder="Enter your email"
+    required
+  />
+  <br />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="*********"
+    required
+  />
+  <br />
+  <label for="confirm">Confirm Password</label>
+  <input
+    type="password"
+    id="confirm"
+    name="confirm"
+    placeholder="*********"
+    required
+  />
+  <br />
+  <a class="button" href=""><h6>Forgot password?</h6></a>
+  <br />
+  <button type="submit">Sign in</button>
+  <br />
+  <h6 class="button">Don't have an account?<a class="button" href="/stockhome/signup">
+      Sign up for free!</a></h6>
+</form>
+<h3>{{alert}}</h3>
+<a href="/stockhome/inventories">Home page</a>
+
+{{! Right div : Image }}
+<div class="">
+  <img src="" alt="This is an image" />
+</div>
