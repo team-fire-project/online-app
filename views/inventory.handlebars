@@ -20,35 +20,44 @@
           <p>{{inventory.description}}</p>
         </span>
         <br />
-
         {{#if admin}}
           {{! All buttons }}
-          <div class="item-overview ctas">
+        <div class="ctas">
+          <div>
             <button><a href="/stockhome/edit-inventory-form/{{inventory.id}}"><i
                   class="fas fa-pencil-alt"
                 ></i></a></button>
-            <button><i class="far fa-trash-alt"></i></button>
-            <button>
-              <span>
-                <img
-                  id="minus-count-button"
-                  class="count-button"
-                  src="/images/minus_count_button.jpg"
-                />
-              </span>
-            </button>
-            <button>
-              <span>
-                <img
-                  id="plus-count-button"
-                  class="count-button"
-                  src="/images/plus_count_button.jpg"
-                />
-              </span>
-            </button>
+            <button id="delete-item"><i class="far fa-trash-alt"></i></button>
           </div>
+          {{! Counts Buttons (plus & minus) }}
+          <div>
+            <button id="minus-count-button" class="count-button"><i
+                class="fas fa-minus"
+              ></i></button>
+            <button id="plus-count-button" class="count-button"><i
+                class="fas fa-plus"
+              ></i></button>
+          </div>
+        </div>
+        {{! delete button }}
+        {{!-- delete modal --}}
+        <div class="modal-container" id="delete-confirmation">
+          <div class="modal">
+            <section>
+              <header class="modal-header">
+                <h2>You want to delete <span class="highlight">{{inventory.name}}</span></h2>
+              </header>
+              <section class="modal-content">
+                <p>There's no restoring data once you've deleted the item. <span class="highlight">Are you sure you want to delete this item?</span></p>
+              </section>
+              <footer class="modal-footer">
+                <button class="modal-button" onclick="onCancel()">Maybe next time</button>
+                <button class="modal-confirm" id="confirm" onclick="onCancel()">Yes, delete it!</button>
+              </footer>
+            </section>
+          </div>
+        </div>
         {{/if}}
-
       </div>
     </div>
   </div>
@@ -60,3 +69,4 @@
 {{! Scripts for buttons }}
 <script src="/minus-count-button.js"></script>
 <script src="/plus-count-button.js"></script>
+<script src="/delete-item.js"></script>
