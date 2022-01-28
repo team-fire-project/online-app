@@ -363,6 +363,56 @@ footer .logo {
   /* align-content: ; */
 }
 
+/* delete modal - css */
+
+.modal-container {
+  z-index: 9999;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  flex-shrink: 2;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.modal {
+  padding: 50px;
+  max-width: 450px;
+  max-height: 300px;
+  background-color: var(--white);
+  border-radius: 10px;
+  color: #1a444f;
+}
+
+.modal h2 {
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--darkpurple);
+}
+
+.modal-button {
+    cursor: pointer;
+    border: none;
+    color: #356e5d;
+    text-decoration: underline;
+    margin: 0 20px;
+    border-radius: 10px;
+    height: 37px;
+    background: none;
+}
+
+/* edit-delete-count-css */
+
 .ctas button a {
   text-decoration: none;
   color: black;
@@ -382,7 +432,8 @@ footer .logo {
   padding: 1.5rem;
 }
 
-.item-container .view-all {
+.item-container .view-all, 
+.modal-confirm {
   display: inline;
   margin: 1rem 5px;
   width: 10rem;
@@ -396,6 +447,8 @@ footer .logo {
   border-radius: 40px;
   border: none;
   transition: all 0.2s ease-out;
+  color: var(--white);
+  cursor: pointer;
 }
 
 .item-container .view-all:hover {
