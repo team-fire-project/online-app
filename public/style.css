@@ -64,6 +64,7 @@ nav .nav-items li a {
 
 nav .nav-items li a:hover {
   color: rgb(85, 122, 9);
+  transition: all 0.3s ease-out;
 }
 
 nav .cta {
@@ -179,11 +180,10 @@ nav .nav-items {
   width: 80%;
 }
 
-footer .footer-info h6, 
+footer .footer-info h6,
 footer .footer-info a {
   font-weight: 400;
   color: var(--darkgray);
-
 }
 
 footer .footer-info {
@@ -399,7 +399,7 @@ footer .logo {
   transition: all 0.2s ease-out;
 }
 
-.item-container .view-all:hover{
+.item-container .view-all:hover {
   height: 40px;
   font-size: 0.9rem;
   transition: all 0.2s ease-out;
