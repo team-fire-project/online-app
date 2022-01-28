@@ -68,6 +68,7 @@ nav .cta {
   display: flex;
   height: 40px;
   text-align: center;
+  margin-right: 4px;
 }
 
 .cta-container {
@@ -76,7 +77,7 @@ nav .cta {
 
 nav .add-item {
   display: inline;
-  margin: 0 5px;
+  margin: 0 2px;
   width: 6rem;
   height: 37px;
   font-size: 0.8rem;
@@ -213,7 +214,7 @@ footer .logo {
 
 .container {
   display: grid;
-  margin-top: 4rem;
+  margin-top: 3rem;
   height: auto;
   align-self: center;
   justify-self: center;
@@ -223,11 +224,26 @@ footer .logo {
 .container h1 {
   text-align: center;
   font-weight: 700;
+  letter-spacing: 1.5px;
   font-size: 2rem;
   color: var(--lightgray);
   padding-bottom: 40px;
   text-transform: capitalize;
 }
+
+.container .welcome {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--lightgray);
+  text-transform: capitalize;
+}
+
+.container .welcome span {
+  color: rgb(169, 97, 197);
+}
+
+
 
 .container .card {
   /* display: grid;
@@ -543,7 +559,7 @@ footer .logo {
   } */
   nav {
     padding: 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-content: center;
     flex-shrink: 3;
     width: 100%;
@@ -610,7 +626,7 @@ footer .logo {
     z-index: 99;
     top: 70px;
     width: 100%;
-    height: 70%;
+    height: 80%;
     background-color: #1a444f;
     display: inline-block;
     padding: 10px 50px 0 50px;
@@ -631,7 +647,7 @@ footer .logo {
 
   nav .cta {
     display: block;
-    margin: 0 20px;
+    margin: 0 5px;
     /* justify-self: flex-end; */
   }
 
@@ -663,28 +679,30 @@ footer .logo {
   }
 }
 
-@media (max-width: 675px) {
+@media (max-width: 745px) {
   nav .add-item {
     display: none;
   }
 
   .container .card {
     margin-right: 60px;
+    padding: 0 10px;
   }
 
   nav .logo {
-    padding-left: 5px;
+    padding-left: 15px;
+    font-size: 26px;
   }
 
   nav {
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     min-width: fit-content;
     flex-wrap: nowrap;
   }
 
   .inventory img {
-    width: 400px;
+    width: 350px;
   }
 
   nav .menu-icon {
@@ -693,6 +711,6 @@ footer .logo {
   }
 
   nav .cta form {
-    width: 85px;
+    width: 105px;
   }
 }
