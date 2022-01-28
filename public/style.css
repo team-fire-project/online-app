@@ -501,11 +501,12 @@ footer .logo {
 /* media query for single-item page */
 @media (min-width: 963px) {
   .item-card {
-    height: 25rem;
+    height: fit-content;
     width: 60rem;
     display: flex;
     flex-direction: row-reverse;
     margin: 10px 30px;
+    align-items: center;
   }
 
   .img-section {
@@ -552,7 +553,7 @@ footer .logo {
 }
 
 /* media query for main page */
-@media (max-width: 1000px) {
+@media (max-width: 1025px) {
   /* .item-container {
     display: flex;
     flex-direction: column;
@@ -626,7 +627,7 @@ footer .logo {
     z-index: 99;
     top: 70px;
     width: 100%;
-    height: 80%;
+    height: 100%;
     background-color: #1a444f;
     display: inline-block;
     padding: 10px 50px 0 50px;
