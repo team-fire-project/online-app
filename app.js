@@ -17,7 +17,7 @@ const {
 
 const PORT = 5000;
 const { seed } = require("./seed.js");
-const { Category, Inventory, User } = require("./Models/index.js");
+const { Inventory, User } = require("./Models/index.js");
 
 // Configurating hanlebars library to work well w/ express + sequelize model
 const handlebars = engine({
@@ -44,6 +44,7 @@ app.use(
   })
 );
 
+// Middleware
 app.get("/stockhome/", (req, res) => {
   res.redirect("/stockhome/signin");
 });
@@ -138,17 +139,17 @@ app.get("/stockhome/add-inventory-form", (req, res) => {
 });
 app.post("/stockhome/add-inventory", async (req, res) => {
   const newInventory = await Inventory.create(req.body);
-  // const counts = newInventory.counts;
   const foundInventory = await Inventory.findByPk(newInventory.id);
   foundInventory.counts = newInventory.counts;
 
   if (foundInventory && res.status(200)) {
-    res.send(`Inventory added successfully!`);
+    res.redirect(`/stockhome/inventories`);
   } else {
     res.send("Something went wrong, please try again...");
   }
 });
 
+// A route to delete an item
 app.delete("/stockhome/inventories/:id", async (req, res) => {
   const deleteditem = await Inventory.destroy({
     where: { id: req.params.id },
@@ -176,7 +177,7 @@ app.put("/stockhome/edit-inventory/:id", async (req, res) => {
   const newInventory = await Inventory.update(req.body, {
     where: { id: inventoryID },
   });
-  res.redirect(`/stockhome/inventories/${inventoryID}`);
+  res.redirect(`/stockhome/inventories/${newInventory.id}`);
 });
 
 // A route for user to sign up
@@ -236,7 +237,6 @@ app.post("/stockhome/signin", async (req, res) => {
   const thisUser = await User.findOne({
     where: { emailaddress: req.body.emailaddress },
   });
-  const confirm = req.body.confirm;
   const password = req.body.password;
 
   // If that user doesn't exist, sign in fails
@@ -247,7 +247,7 @@ app.post("/stockhome/signin", async (req, res) => {
   } else {
     bcrypt.compare(password, thisUser.password, async (err, result) => {
       // If passwords dont match, sign in fails
-      if (!result || password !== confirm) {
+      if (!result) {
         let alert = "⛔ Wrong password! ⛔";
         res.render("signinForm", { alert });
         // Else sign in succeeds
