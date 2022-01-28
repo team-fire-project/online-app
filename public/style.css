@@ -8,6 +8,7 @@
   --darkpurple: rgb(43, 18, 102);
   --neongreen: #006400;
   --darkgreen: #1a444f;
+  --bodygreen: #356e5d;
 }
 
 * {
@@ -97,6 +98,17 @@ nav .add-item:hover {
   box-shadow: 4px 4px 7px rgb(26, 54, 33) inset;
 }
 
+nav .add-item:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+nav .nav-items li a:active {
+  color: rgb(85, 122, 9);
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
 nav .add-item a {
   color: var(--lightgray);
   text-decoration: none;
@@ -170,7 +182,6 @@ nav .nav-items {
   background: #76d988;
   height: 100px;
   min-width: 100vw;
-  margin-top: 100px;
   color: #444;
   display: flex;
   flex-direction: column;
@@ -242,8 +253,6 @@ footer .logo {
 .container .welcome span {
   color: rgb(169, 97, 197);
 }
-
-
 
 .container .card {
   /* display: grid;
@@ -480,6 +489,14 @@ footer .logo {
   cursor: pointer;
 }
 
+.item-container .view-all:active,
+.modal-confirm:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
+
 .item-container .view-all:hover {
   width: 11rem;
   transition: all 0.2s ease-out;
@@ -494,6 +511,158 @@ footer .logo {
 /* display none */
 .display-none {
   display: none;
+}
+
+/* Sign in page css */
+
+.form-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container .imageBox {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+/* .form-container .imageBox img:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%; 
+  background: linear-gradient(225deg,rgb(26, 54, 33), rgb(94, 75, 109) );
+  z-index: 1;
+  mix-blend-mode: screen;
+} */
+
+.form-container .imageBox img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-container .contentBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.form-container .contentBox .formBox {
+  width: 50%;
+}
+
+.form-container .contentBox h2 {
+  color: #356e5d;
+  font-weight: 600;
+  font-size: 1.9em;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  /* border-bottom: 1px solid #356e5d; */
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.form-container .contentBox .formBox .inputBox,
+.contentBox .admin {
+  margin-bottom: 17px;
+}
+
+.form-container .contentBox .formBox .inputBox span,
+.contentBox .admin span {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: inline-block;
+  font-weight: 400;
+  color: var(--darkgray);
+  letter-spacing: 0.5px;
+}
+
+.form-container .contentBox .formBox .inputBox input,
+.form-container .contentBox .formBox .inputBox button {
+  width: 100%;
+  padding: 7px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid var(--bodygreen);
+  font-size: 16px;
+  color: var(--darkgray);
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
+}
+
+.form-container .contentBox .formBox .inputBox input[type="submit"] {
+  cursor: pointer;
+}
+.form-container .contentBox .formBox #signin-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container .contentBox .formBox #signin-google img {
+  padding-right: 10px;
+  height: 19px;
+}
+
+#signin-google {
+  background: var(--bodygreen);
+  color: var(--white);
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-container .contentBox .formBox .inputBox input[type="submit"]:hover,
+#signin-google:hover {
+  background: #2c5a4c;
+  color: var(--white);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.contentBox .admin span {
+  color: #1a444f;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.contentBox .inputBox .forgot-pass,
+.contentBox .inputBox p,
+.contentBox .inputBox p a {
+  text-decoration: none;
+  color: rgb(109, 107, 107);
+  font-size: 14px;
+}
+
+.contentBox .inputBox .forgot-pass:hover,
+/* .contentBox .inputBox p:hover, */
+.contentBox .inputBox p a:hover {
+  /* text-decoration: none; */
+  color: var(--bodygreen);
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  border-bottom:1px solid grey;
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+
+
+.contentBox #back-home a {
+  color: var(--darkpurple);
 }
 
 /* Responsive CSS */
