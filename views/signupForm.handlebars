@@ -1,44 +1,73 @@
-{{!-- Left div : SignUp form --}}
-<h2>Sign Up now!</h2>
-<form action="/stockhome/signup" method="post">
-  <label for="emailaddress">Email address</label>
-  <input
-    type="text"
-    id="emailaddress"
-    name="emailaddress"
-    placeholder="Enter your email"
-    required
-  />
-  <br />
-  <label for="password">Password</label>
-  <input
-    type="password"
-    id="password"
-    name="password"
-    placeholder="*********"
-    required
-  />
-  <br />
-  <label for="confirm">Confirm Password</label>
-  <input
-    type="password"
-    id="confirm"
-    name="confirm"
-    placeholder="*********"
-    required
-  />
-  <br />
-  <input type="checkbox" id="role-checkbox" name="role" value="Admin">
-  <label for="role"> I'm an Admin </label><br>
-  <br/>
-  <button type="submit">Sign Up</button>
-  <h6 class="button">Already have an account?<a class="button" href="/stockhome/signin">
-    Sign in here!</a></h6>
-</form>
-<h3>{{alert}}</h3>
-<a href="/stockhome/inventories">Home page</a>
+<section class="form-container plainbackground">
+  <div class="contentBox">
+    <div class="formBox">
 
-{{!-- Right div : Image --}}
-<div class="">
-    <img src="" alt="This is an image" />
-</div>
+      {{! Left div : SignUp form }}
+      <h2>Sign Up Now!</h2>
+      <form action="/stockhome/signup" method="post">
+        <div class="inputBox">
+          <span><label for="emailaddress">Email address</label></span>
+          <input
+            type="text"
+            id="emailaddress"
+            name="emailaddress"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="inputBox">
+        <span><label for="password">Password</label></span>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="*********"
+          required
+        />
+        </div>
+
+        <div class="inputBox">
+        <span><label for="confirm">Confirm Password</label></span>
+        <input
+          type="password"
+          id="confirm"
+          name="confirm"
+          placeholder="*********"
+          required
+        />
+        </div>
+        <div class="admin">
+          <span><label for="role">
+            <input
+              type="checkbox"
+              id="role-checkbox"
+              name="role"
+              value="Admin"
+            />
+            I'm an Admin
+          </label></span>
+        </div>
+        <div class="inputBox">
+          <input id="signin-google" type="submit" value="Sign Up" name="" />
+        </div>
+        <div class="inputBox">
+          <p class="button">Already have an account?<a
+              class="button"
+              href="/stockhome/signin"
+            >
+              Sign In!</a></p>
+        </div>
+      </form>
+      <div class="inputBox" id="back-home">
+      <h3>{{alert}}</h3>
+      <a href="/stockhome/inventories">Homepage</a>
+      </div>
+    </div>
+  </div>
+
+  {{! Right div : Image }}
+
+  <div class="imageBox">
+    <img src="/images/image 3.svg" alt="This is an image" />
+  </div>
+</section>
