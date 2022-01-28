@@ -236,7 +236,6 @@ app.post("/stockhome/signin", async (req, res) => {
   const thisUser = await User.findOne({
     where: { emailaddress: req.body.emailaddress },
   });
-  const confirm = req.body.confirm;
   const password = req.body.password;
 
   // If that user doesn't exist, sign in fails
@@ -247,7 +246,7 @@ app.post("/stockhome/signin", async (req, res) => {
   } else {
     bcrypt.compare(password, thisUser.password, async (err, result) => {
       // If passwords dont match, sign in fails
-      if (!result || password !== confirm) {
+      if (!result) {
         let alert = "⛔ Wrong password! ⛔";
         res.render("signinForm", { alert });
         // Else sign in succeeds
