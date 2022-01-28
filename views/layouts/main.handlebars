@@ -62,9 +62,22 @@
             />
           </form>
         </div>
-        <button class="add-item"><a href="/stockhome/add-inventory-form">Add Item</a></button>
+        {{#if guest}}
+          <button class="add-item"><a
+              href="/stockhome/signin"
+            >Login</a></button>
+        {{/if}}
+        {{#if admin}}
+          <button class="add-item"><a href="/stockhome/add-inventory-form">Add
+              Item</a></button>
+          <button class="add-item"><a href="/stockhome/logout">Sign out</a></button>
+        {{/if}}
+        {{#if shopper}}
+          <button class="add-item"><a href="/stockhome/logout">Sign out</a></button>
+        {{/if}}
+
       </div>
-      <h2>TEST admin:{{admin}}</h2>
+
     </nav>
     <script src="/script.js"></script>
 
@@ -74,7 +87,8 @@
 
       {{! Footer }}
       <footer id="footer">
-        <div class="logo"> <a href="/stockhome/inventories/">StockHome.</a></div>
+        <div class="logo">
+          <a href="/stockhome/inventories/">StockHome.</a></div>
         <hr />
         <div>
           <h6 class="copy-right">© 2022 StockHome. All rights reserved</h6>
@@ -83,7 +97,6 @@
         </div>
       </footer>
     </div>
-
 
   </body>
 </html>

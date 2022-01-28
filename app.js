@@ -52,12 +52,25 @@ app.get("/stockhome/", (req, res) => {
 app.get("/stockhome/inventories", async (req, res) => {
   const inventories = await Inventory.findAll();
   let user = "Guest";
+  const userRole = req.session.role;
+  let admin = false;
+  let shopper = false;
+  let guest = false;
 
+  // Get different UI depends on different roles
   if (req.session.emailaddress) {
     user = req.session.emailaddress.split("@")[0];
+    shopper = true;
+  } else {
+    guest = true;
   }
 
-  res.render("inventories", { inventories, user });
+  if (userRole == "Admin") {
+    shopper = false;
+    admin = true;
+  }
+
+  res.render("inventories", { inventories, user, admin, shopper, guest });
 });
 
 // A route that users can get a specific category of items
@@ -66,7 +79,25 @@ app.get("/stockhome/inventories/categories/:category", async (req, res) => {
   const inventories = await Inventory.findAll({
     where: { category: categories },
   });
-  res.render("categories", { inventories,categories });
+
+  // Get different UI depends on different roles
+  const userRole = req.session.role;
+  let admin = false;
+  let shopper = false;
+  let guest = false;
+
+  if (req.session.emailaddress) {
+    shopper = true;
+  } else {
+    guest = true;
+  }
+
+  if (userRole == "Admin") {
+    shopper = false;
+    admin = true;
+  }
+
+  res.render("categories", { inventories, categories, admin, shopper, guest });
 });
 
 // A route that users can view one item
@@ -77,11 +108,21 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   // Get different UI depends on different roles
   const userRole = req.session.role;
   let admin = false;
+  let shopper = false;
+  let guest = false;
+
+  if (req.session.emailaddress) {
+    shopper = true;
+  } else {
+    guest = true;
+  }
+
   if (userRole == "Admin") {
+    shopper = false;
     admin = true;
   }
-console.log(admin)
-  res.render("inventory", { inventory , admin });
+
+  res.render("inventory", { inventory, admin, shopper, guest });
 });
 
 // A route for Help center page
@@ -169,7 +210,7 @@ app.post("/stockhome/signup", async (req, res) => {
     // Using bcrypt to make sure the user password is secure
     bcrypt.hash(password, saltRounds, async (err, hash) => {
       const newUser = await User.create({
-        role:userRole,
+        role: userRole,
         emailaddress: emailaddress,
         password: hash,
       });
@@ -177,7 +218,7 @@ app.post("/stockhome/signup", async (req, res) => {
       // Sorting user id and emailaddress in session data
       req.session.userID = newUser.id;
       req.session.emailaddress = newUser.emailaddress;
-      req.session.role = userRole
+      req.session.role = userRole;
 
       // Render signin form directly
       res.redirect("/stockhome/signin");
@@ -198,7 +239,6 @@ app.post("/stockhome/signin", async (req, res) => {
   const confirm = req.body.confirm;
   const password = req.body.password;
 
-
   // If that user doesn't exist, sign in fails
   if (!thisUser) {
     let alert = "⛔ User not found! ⛔";
@@ -216,7 +256,6 @@ app.post("/stockhome/signin", async (req, res) => {
         req.session.userID = thisUser.id;
         req.session.emailaddress = thisUser.emailaddress;
         req.session.role = thisUser.role;
-
 
         res.redirect("/stockhome/inventories");
       }
