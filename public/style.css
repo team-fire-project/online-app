@@ -659,8 +659,6 @@ footer .logo {
   border-radius: 4px;
 }
 
-
-
 .contentBox #back-home a {
   color: var(--darkpurple);
 }
@@ -727,6 +725,14 @@ footer .logo {
     display: flex;
     flex-direction: column;
   } */
+.form-container .imageBox {
+    display: none;
+  }
+
+  .form-container .contentBox {
+    width: 100%;
+  }
+
   nav {
     padding: 0;
     justify-content: space-evenly;
