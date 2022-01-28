@@ -48,9 +48,6 @@ nav .nav-items li {
   transition: all 0.3s ease-out;
 }
 
-nav .nav-items {
-}
-
 .add-item-list {
   display: none;
 }
@@ -90,6 +87,13 @@ nav .add-item {
   padding-bottom: 4px;
   border: none;
   border-radius: 40px;
+  transition: all 0.2s ease-in;
+}
+
+nav .add-item:hover {
+  width: 6.2rem;
+  transition: all 0.2s ease-out;
+  box-shadow: 4px 4px 7px rgb(26, 54, 33) inset;
 }
 
 nav .add-item a {
@@ -461,9 +465,9 @@ footer .logo {
 }
 
 .item-container .view-all:hover {
-  height: 40px;
-  font-size: 0.9rem;
+  width: 11rem;
   transition: all 0.2s ease-out;
+  box-shadow: 4px 4px 7px rgb(26, 54, 33) inset;
 }
 
 .item-container .view-all a {
@@ -578,9 +582,8 @@ footer .logo {
 
   nav .logo {
     text-align: center;
-    margin-left: 10px;
+    padding-left: 80px;
     font-size: 30px;
-
     /* flex: 2;
     text-align: center;
     justify-content: center;
@@ -669,15 +672,15 @@ footer .logo {
     margin-right: 60px;
   }
 
+  nav .logo {
+    padding-left: 5px;
+  }
+
   nav {
     justify-content: space-between;
     align-items: center;
     min-width: fit-content;
     flex-wrap: nowrap;
-  }
-
-  nav .logo {
-    /* padding-right: 400px; */
   }
 
   .inventory img {
