@@ -700,7 +700,7 @@ footer .logo {
 .contentBox .inputBox p a {
   text-decoration: none;
   color: rgb(109, 107, 107);
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .inputBox .modal-button a {
@@ -745,7 +745,7 @@ footer .logo {
 .contentBox .inputBox p a:hover {
   /* text-decoration: none; */
   color: var(--bodygreen);
-  font-size: 14px;
+  font-size: 17px;
   transition: all 0.3s ease-in-out;
   border-bottom: 1px solid grey;
   padding: 1px 3px;
@@ -828,7 +828,7 @@ footer .logo {
 
   nav {
     padding: 0;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
     flex-shrink: 3;
     width: 100%;
@@ -847,9 +847,12 @@ footer .logo {
   .container {
     display: flex;
     flex-direction: column;
+    /* 
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
+    */
   }
 
   .container .card {
@@ -865,10 +868,11 @@ footer .logo {
     text-align: center;
   }
 
-  nav .logo {
+  nav .hidden {
     text-align: center;
     padding-left: 80px;
     font-size: 30px;
+    display: none;
     /* flex: 2;
     text-align: center;
     justify-content: center;
@@ -922,11 +926,15 @@ footer .logo {
 
   nav .menu-icon span {
     display: block;
+    margin-right: 12px;
   }
 
   nav .menu-icon {
-    display: block;
+    display: flex;
+    flex-direction: row;
     margin-right: 100px;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .inventory span h3 {
@@ -948,19 +956,19 @@ footer .logo {
   }
 
   .form-container .add-item-box .formBox .inputBox span {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: inline-block;
-  font-weight: 400;
-  color: var(--white);
-  letter-spacing: 0.5px;
-}
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
 
-.form-container {
-  position: unset;
-}
+  .form-container {
+    position: unset;
+  }
 
-/* .form-container .contentBox .formBox .inputBox input,
+  /* .form-container .contentBox .formBox .inputBox input,
 .form-container .contentBox .formBox .inputBox button {
   width: 250px;
   padding: 7px 20px;
@@ -974,36 +982,35 @@ footer .logo {
   box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
 } */
 
-.form-container .add-item-box .formBox .inputBox, 
-#counts-imageUrl, 
-#countsBox, 
-#imageUrlBox{
-  display: flex;
-  flex-direction: column;
-}
+  .form-container .add-item-box .formBox .inputBox,
+  #counts-imageUrl,
+  #countsBox,
+  #imageUrlBox {
+    display: flex;
+    flex-direction: column;
+  }
 
-#countsBox,
-#edit-countsBox,
-#imageUrlBox,
-#add-form-inventory-count,
-#add-form-inventory-image
-#edit-imageUrlBox {
-  width: 100%;
-}
+  #countsBox,
+  #edit-countsBox,
+  #imageUrlBox,
+  #add-form-inventory-count,
+  #add-form-inventory-image #edit-imageUrlBox {
+    width: 100%;
+  }
 
-.form-container .add-item-box .formBox .inputBox input,
-.form-container .add-item-box .formBox .inputBox select {
-  width: 100%;
-  padding: 7px 15px;
-  outline: none;
-  font-weight: 400;
-  border: 1px solid var(--bodygreen);
-  font-size: 16px;
-  color: var(--darkgray);
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
-}
+  .form-container .add-item-box .formBox .inputBox input,
+  .form-container .add-item-box .formBox .inputBox select {
+    width: 100%;
+    padding: 7px 15px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--bodygreen);
+    font-size: 16px;
+    color: var(--darkgray);
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
+  }
 }
 
 @media (max-width: 745px) {
@@ -1012,9 +1019,18 @@ footer .logo {
   }
 
   .container .card {
+    display: flex;
+    justify-content: center;
     margin-right: 60px;
     padding: 0 10px;
   }
+
+  .card .inventory {
+  margin-left: 20px;
+  display: unset;
+  width: 350px;
+  padding: 0px 10px;
+}
 
   nav .logo {
     padding-left: 15px;
@@ -1022,14 +1038,14 @@ footer .logo {
   }
 
   nav {
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     min-width: fit-content;
     flex-wrap: nowrap;
   }
 
   .inventory img {
-    width: 350px;
+    width: 300px;
   }
 
   nav .menu-icon {
@@ -1038,6 +1054,7 @@ footer .logo {
   }
 
   nav .cta form {
-    width: 105px;
+    width: 135px;
+    height: 35px;
   }
 }
