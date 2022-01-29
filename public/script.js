@@ -7,7 +7,7 @@ menu.addEventListener("click", function () {
 });
 
 const getSearch = () => {
- const item = document.getElementById("search-input");
-  console.log(item.value);
+  const item = document.getElementById("search-input");
   window.location.assign(`/stockhome/inventories/search/${item.value}`);
+  alert("searching...");
 };

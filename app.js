@@ -256,17 +256,16 @@ app.post("/stockhome/signin", async (req, res) => {
   }
 });
 
-
-// user search // 
-app.get('/stockhome/inventories/search/:searchname', async (req, res) => {
-    searchItem = req.params.searchname;
-    const inventories = await Inventory.findAll({
-      where: {
-        name: { [Op.like]: `%${searchItem}%` },
-      },
-    });
-    // console.log(items);
-    res.render("inventories",{inventories})
+// user search //
+app.get("/stockhome/inventories/search/:searchname", async (req, res) => {
+  searchItem = req.params.searchname;
+  const inventories = await Inventory.findAll({
+    where: {
+      name: { [Op.like]: `%${searchItem}%` },
+    },
+  });
+  // console.log(inventories);
+  res.render("inventories", { inventories });
 });
 
 // User logging out
@@ -275,8 +274,6 @@ app.get("/stockhome/logout", (req, res) => {
     res.redirect("/stockhome");
   });
 });
-
-
 
 app.listen(PORT, async () => {
   await seed();
