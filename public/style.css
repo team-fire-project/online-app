@@ -585,6 +585,7 @@ footer .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 1;
   width: 50%;
   height: 100%;
 }
@@ -945,6 +946,64 @@ footer .logo {
   line-height: 1.5em; 
   max-height: 3em; */
   }
+
+  .form-container .add-item-box .formBox .inputBox span {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: inline-block;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.form-container {
+  position: unset;
+}
+
+/* .form-container .contentBox .formBox .inputBox input,
+.form-container .contentBox .formBox .inputBox button {
+  width: 250px;
+  padding: 7px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid var(--bodygreen);
+  font-size: 16px;
+  color: var(--darkgray);
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
+} */
+
+.form-container .add-item-box .formBox .inputBox, 
+#counts-imageUrl, 
+#countsBox, 
+#imageUrlBox{
+  display: flex;
+  flex-direction: column;
+}
+
+#countsBox,
+#edit-countsBox,
+#imageUrlBox,
+#add-form-inventory-count,
+#add-form-inventory-image
+#edit-imageUrlBox {
+  width: 100%;
+}
+
+.form-container .add-item-box .formBox .inputBox input,
+.form-container .add-item-box .formBox .inputBox select {
+  width: 100%;
+  padding: 7px 15px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid var(--bodygreen);
+  font-size: 16px;
+  color: var(--darkgray);
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
+}
 }
 
 @media (max-width: 745px) {
