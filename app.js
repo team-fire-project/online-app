@@ -1,4 +1,4 @@
-// Instantiate all the dependencies needed
+//////////////////Instantiate all the dependencies needed ///////////////////
 const express = require("express");
 const app = express();
 
@@ -16,6 +16,7 @@ const {
 } = require("@handlebars/allow-prototype-access");
 
 const PORT = 5000;
+const { Op } = require("sequelize");
 const { seed } = require("./seed.js");
 const { Inventory, User } = require("./Models/index.js");
 
@@ -44,21 +45,14 @@ app.use(
   })
 );
 
-// Middleware
-app.get("/stockhome/", (req, res) => {
-  res.redirect("/stockhome/signin");
-});
-
-// A route that users can view all items
-app.get("/stockhome/inventories", async (req, res) => {
-  const inventories = await Inventory.findAll();
-  let user = "Guest";
+/////////////////////////////// Helper function ///////////////////////////////
+const findRole = (req) => {
   const userRole = req.session.role;
+  let user = "Guest";
   let admin = false;
   let shopper = false;
   let guest = false;
 
-  // Get different UI depends on different roles
   if (req.session.emailaddress) {
     user = req.session.emailaddress.split("@")[0];
     shopper = true;
@@ -71,6 +65,27 @@ app.get("/stockhome/inventories", async (req, res) => {
     admin = true;
   }
 
+  const users = [admin, shopper, guest, user];
+
+  return users;
+};
+
+////////////////////////////////// Middleware /////////////////////////////////
+app.get("/stockhome/", (req, res) => {
+  res.redirect("/stockhome/signin");
+});
+
+// A route that users can view all items
+app.get("/stockhome/inventories", async (req, res) => {
+  const inventories = await Inventory.findAll();
+
+  // Get different UI depends on different roles
+  const getUser = await findRole(req);
+  let user = getUser[3];
+  let admin = getUser[0];
+  let shopper = getUser[1];
+  let guest = getUser[2];
+
   res.render("inventories", { inventories, user, admin, shopper, guest });
 });
 
@@ -82,21 +97,10 @@ app.get("/stockhome/inventories/categories/:category", async (req, res) => {
   });
 
   // Get different UI depends on different roles
-  const userRole = req.session.role;
-  let admin = false;
-  let shopper = false;
-  let guest = false;
-
-  if (req.session.emailaddress) {
-    shopper = true;
-  } else {
-    guest = true;
-  }
-
-  if (userRole == "Admin") {
-    shopper = false;
-    admin = true;
-  }
+  const getUser = await findRole(req);
+  let admin = getUser[0];
+  let shopper = getUser[1];
+  let guest = getUser[2];
 
   res.render("categories", { inventories, categories, admin, shopper, guest });
 });
@@ -107,21 +111,10 @@ app.get("/stockhome/inventories/:id", async (req, res) => {
   const inventory = await Inventory.findByPk(inventoryID);
 
   // Get different UI depends on different roles
-  const userRole = req.session.role;
-  let admin = false;
-  let shopper = false;
-  let guest = false;
-
-  if (req.session.emailaddress) {
-    shopper = true;
-  } else {
-    guest = true;
-  }
-
-  if (userRole == "Admin") {
-    shopper = false;
-    admin = true;
-  }
+  const getUser = await findRole(req);
+  let admin = getUser[0];
+  let shopper = getUser[1];
+  let guest = getUser[2];
 
   res.render("inventory", { inventory, admin, shopper, guest });
 });
@@ -177,7 +170,7 @@ app.put("/stockhome/edit-inventory/:id", async (req, res) => {
   const newInventory = await Inventory.update(req.body, {
     where: { id: inventoryID },
   });
-  res.redirect(`/stockhome/inventories/${newInventory.id}`);
+  res.redirect(`/stockhome/inventories/${inventoryID}`);
 });
 
 // A route for user to sign up
@@ -263,12 +256,27 @@ app.post("/stockhome/signin", async (req, res) => {
   }
 });
 
+
+// user search // 
+app.get('/stockhome/inventories/search/:searchname', async (req, res) => {
+    searchItem = req.params.searchname;
+    const inventories = await Inventory.findAll({
+      where: {
+        name: { [Op.like]: `%${searchItem}%` },
+      },
+    });
+    // console.log(items);
+    res.render("inventories",{inventories})
+});
+
 // User logging out
 app.get("/stockhome/logout", (req, res) => {
   req.session.destroy(function (err) {
     res.redirect("/stockhome");
   });
 });
+
+
 
 app.listen(PORT, async () => {
   await seed();
