@@ -1,6 +1,4 @@
 {{!-- <form action="/stockhome/edit-inventory/{{inventory.id}}" method="put"> --}}
-
-
 <form onsubmit="editItem({{inventory.id}})">
   <h1>Edit Inventory Item</h1>
   {{! Item Name }}
@@ -47,7 +45,7 @@
 
   {{! Buttons }}
   <a class="" href="/stockhome/inventories/">Cancel</a>
-  <button type="submit">Submit</button>
+  <button type="submit" id="edit-submit">Submit</button>
 </form>
 
 <script src="/edit-inventory-form.js"></script>
