@@ -1,6 +1,7 @@
 // Instantiate all the dependencies needed
 const express = require("express");
 const app = express();
+const Op = require("sequelize").Op;
 
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -261,6 +262,18 @@ app.post("/stockhome/signin", async (req, res) => {
       }
     });
   }
+});
+
+//user search //
+
+app.get("/stockhome/inventories/search/:searchitem", async (req, res) => {
+  const searchvalue = req.params.searchitem;
+  const inventories = await Inventory.findAll({
+    where: {
+      name: { [Op.like]: `%${searchvalue}%` },
+    },
+  });
+  res.render("inventories", { inventories });
 });
 
 // User logging out

@@ -63,12 +63,17 @@
       </div> }}
       <div class="cta-container">
         <div class="cta">
-          <form action="">
-            <button type="submit" class="fas fa-search"></button>
+          <form>
+            <button
+              type="submit"
+              class="fas fa-search"
+              onclick="getSearch()"
+            ></button>
             <input
               type="search"
               class="search-data"
               placeholder="Search Items"
+              id="search"
               required
             />
           </form>

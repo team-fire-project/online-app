@@ -10,4 +10,9 @@ menu.addEventListener('click', function() {
 document.getElementById('nav-menu').classList.toggle('is-active')
 document.getElementById('bars').classList.toggle('fa-times')
 })
-
+const getSearch = async () => {
+    const item = document.getElementById("search")
+    alert(item.value)
+    
+    // window.location.assign(`/stockhome/inventories/search/${item.value}`)
+}
