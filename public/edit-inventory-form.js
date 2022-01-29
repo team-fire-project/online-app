@@ -17,7 +17,7 @@ const editItem = async (id) => {
   const newImage = imageURL.value;
   const newDescription = itemDescription.value;
 
-  let res = await fetch(`/stockhome/edit-inventory/${id}`, {
+  await fetch(`/stockhome/edit-inventory/${id}`, {
     method: "put",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -29,4 +29,8 @@ const editItem = async (id) => {
       counts: newCount,
     }),
   });
+
+  // alert("Item updated!");
+  window.location.assign(`/stockhome/inventories/${id}`);
+  alert("Item updated!");
 };

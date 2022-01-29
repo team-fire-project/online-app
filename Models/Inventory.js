@@ -16,6 +16,7 @@ Inventory.init(
   },
   {
     sequelize: db,
+    timestamps: false,
   }
 );
 

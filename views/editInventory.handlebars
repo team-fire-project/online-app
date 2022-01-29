@@ -4,7 +4,7 @@
   {{! Item Name }}
   <label for="name">Item Name</label>
   <br />
-  <input type="text" id="edit-form-inventory-name" name="name" required />
+  <input type="text" id="edit-form-inventory-name" name="name" placeholder="{{inventory.name}}" required />
   <br />
   {{! Category }}
   <label for="category">Category</label>
@@ -13,18 +13,19 @@
     type="text"
     id="edit-form-inventory-category"
     name="category"
+    placeholder="{{inventory.category}}"
     required
   />
   <br />
   {{! Item Price }}
   <label for="price">Item Price</label>
   <br />
-  <input type="number" id="edit-form-inventory-price" name="price" required />
+  <input type="number" id="edit-form-inventory-price" name="price" placeholder="{{inventory.price}}" required />
   <br />
   {{! Inventory Count }}
   <label for="counts">Inventory Count</label>
   <br />
-  <input type="number" id="edit-form-inventory-count" name="counts" required />
+  <input type="number" id="edit-form-inventory-count" name="counts" placeholder="{{inventory.counts}}"required />
   <br />
   {{! Image URL }}
   <label for="image">Image URL</label>
@@ -44,7 +45,7 @@
 
   {{! Buttons }}
   <a class="" href="/stockhome/inventories/">Cancel</a>
-  <button type="submit">Submit</button>
+  <button type="submit" id="edit-submit">Submit</button>
 </form>
 
 <script src="/edit-inventory-form.js"></script>

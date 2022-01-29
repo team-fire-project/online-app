@@ -1,0 +1,60 @@
+<section class="form-container plainbackground">
+  {{! Left div : SignIn form }}
+  <div class="contentBox">
+    <div class="formBox">
+      <h2>Welcome!</h2>
+      <form action="/stockhome/signin" method="post">
+        <div class="inputBox">
+          <span><label for="emailaddress">Email address</label></span>
+          <input
+            type="text"
+            id="emailaddress"
+            name="emailaddress"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="inputBox">
+          <span><label for="password">Password</label></span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="*********"
+            required
+          />
+        </div>
+        <div class="inputBox">
+          <a class="forgot-pass" href="">Forgot password?</a>
+        </div>
+        
+
+        <div class="inputBox">
+          <input type="submit" value="Sign In" name="" />
+        </div>
+        <div class="inputBox" id="signin">
+          <button id="signin-google" type="submit" value="Sign In With Google" name=""><img src="/images/image 1.png" alt="" srcset="">Sign In With Google</button>
+        </div>
+
+        <div class="inputBox">
+          <p class="button">Don't have an account?<a
+              class="button"
+              href="/stockhome/signup"
+            >
+              Sign Up for free!</a></p>
+        </div>
+      </form>
+      <div class="inputBox" id="back-home">
+      <h3>{{alert}}</h3>
+      <a href="/stockhome/inventories">Homepage</a>
+      </div>
+    </div>
+
+  </div>
+
+  {{! Right div : Image }}
+  <div class="imageBox">
+    <img src="/images/image 3.svg" alt="This is an image" />
+  </div>
+</section>
