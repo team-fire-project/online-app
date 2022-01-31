@@ -17,10 +17,11 @@
   <body>
     {{! Navbar }}
     <nav>
-      <div class="menu-icon" id="#mobile-menu">
-        <span id="bars" class="fas fa-bars"></span>
-      </div>
+      <div class="menu-icon" >
+        <span id="#mobile-menu" id="bars" class="fas fa-bars"></span>
       <div class="logo"> <a href="/stockhome/inventories/">StockHome.</a></div>
+      </div>
+      <div class="logo hidden"> <a href="/stockhome/inventories/">StockHome.</a></div>
       <div class="nav-items" id="nav-menu">
         <li><a href="/stockhome/inventories/">All Inventory</a></li>
         <li><a
@@ -49,7 +50,7 @@
 
       <div class="cta-container">
         <div class="cta">
-          <form action="/stockhome/inventories/search" method="get">
+          <form method="get">
             <button
               type="submit"
               onclick="getSearch()"
@@ -59,6 +60,7 @@
               type="search"
               class="search-data"
               id="search-input"
+              onkeyup="getSearch()"
               placeholder="Search Items"
               required
             />

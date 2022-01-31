@@ -1,6 +1,7 @@
 //////////////////Instantiate all the dependencies needed ///////////////////
 const express = require("express");
 const app = express();
+const Op = require("sequelize").Op;
 
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -16,7 +17,6 @@ const {
 } = require("@handlebars/allow-prototype-access");
 
 const PORT = 5000;
-const { Op } = require("sequelize");
 const { seed } = require("./seed.js");
 const { Inventory, User } = require("./Models/index.js");
 
@@ -256,16 +256,16 @@ app.post("/stockhome/signin", async (req, res) => {
   }
 });
 
-// user search //
-app.get("/stockhome/inventories/search/:searchname", async (req, res) => {
-  searchItem = req.params.searchname;
+//user search //
+
+app.get("/stockhome/inventories/search/:searchitem", async (req, res) => {
+  const searchvalue = req.params.searchitem;
   const inventories = await Inventory.findAll({
     where: {
-      name: { [Op.like]: `%${searchItem}%` },
+      name: { [Op.like]: `%${searchvalue}%` },
     },
   });
-  // console.log(inventories);
-  res.render("inventories", { inventories });
+  res.render("inventories", { inventories});
 });
 
 // User logging out
