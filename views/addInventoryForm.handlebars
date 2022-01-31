@@ -1,48 +1,92 @@
-<form action="/stockhome/add-inventory" method="post">
-  <h1>Add Inventory Item</h1>
-  {{! Item Name }}
-  <label for="name">Item Name</label>
-  <br />
-  <input type="text" id="add-form-inventory-name" name="name" required />
-  <br />
-  {{! Category }}
-  <label for="category">Category</label>
-  <br />
-  <input
-    type="text"
-    id="add-form-inventory-category"
-    name="category"
-    required
-  />
-  <br />
-  {{! Item Price }}
-  <label for="price">Item Price</label>
-  <br />
-  <input type="number" id="add-form-inventory-price" name="price" required />
-  <br />
-  {{! Inventory Count }}
-  <label for="counts">Inventory Count</label>
-  <br />
-  <input type="number" id="add-form-inventory-count" name="counts" required />
-  <br />
-  {{! Image URL }}
-  <label for="image">Image URL</label>
-  <br />
-  <input type="url" id="add-form-inventory-image" name="image" required />
-  <br />
-  {{! Description }}
-  <label for="description">Description</label>
-  <br />
-  <input
-    type="text"
-    id="add-form-inventory-description"
-    name="description"
-    required
-  />
-  <br />
+<section class="form-container">
+  <div class="add-item-box">
+    <h2>Add Inventory Item</h2>
+    <div class="formBox">
+      <form action="/stockhome/add-inventory" method="post">
+        {{! Item Name }}
+        <div class="inputBox">
+          <span><label for="name">Item Name</label></span>
+          <input
+            type="text"
+            id="add-form-inventory-name"
+            name="name"
+            required
+          />
+        </div>
+        {{! Category }}
+        <div class="inputBox">
+          <span><label for="category">Category</label></span>
+          <select name="category" id="add-form-inventory-category" required>
+            <option value="">--Please choose a category--</option>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
+          </select>
+        </div>
+        {{! Item Price }}
+        <div class="inputBox">
+          <span><label for="price">Item Price</label></span>
+          <input
+            type="number"
+            id="add-form-inventory-price"
+            name="price"
+            required
+          />
+        </div>
+        {{! Inventory Count }}
+        <div class="inputBox" id="counts-imageUrl">
+          <div id="countsBox">
+            <span><label for="counts">Inventory Count</label></span>
+            <input
+              type="number"
+              id="add-form-inventory-count"
+              name="counts"
+              required
+            />
+          </div>
+          <div id="imageUrlBox">
+            <span><label for="image">Image URL</label></span>
+            <input
+              type="url"
+              id="add-form-inventory-image"
+              name="image"
+              required
+            />
+          </div>
 
-  {{! Buttons }}
-  <a class="" href="/stockhome/inventories/">Cancel</a>
-  <button type="submit" id="add-submit">Submit</button>
-</form>
-<script src="/add-inventory-form.js"></script>
+        </div>
+        {{! Image URL }}
+        <div class="inputBox">
+
+        </div>
+        {{! Description }}
+        <div class="inputBox">
+          <span><label for="description">Description</label></span>
+
+          <input
+            type="text"
+            id="add-form-inventory-description"
+            name="description"
+            required
+          />
+        </div>
+
+        {{! Buttons }}
+        <div class="inputBox" id="form-cta">
+          <button class="modal-button"><a
+              class=""
+              href="/stockhome/inventories/"
+            >Cancel</a>
+          </button>
+          <button
+            class="modal-confirm"
+            id="add-submit"
+            type="submit"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/add-inventory-form.js"></script>
+</section>

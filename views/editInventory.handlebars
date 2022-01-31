@@ -1,51 +1,101 @@
-{{!-- <form action="/stockhome/edit-inventory/{{inventory.id}}" method="put"> --}}
-<form onsubmit="editItem({{inventory.id}})">
-  <h1>Edit Inventory Item</h1>
-  {{! Item Name }}
-  <label for="name">Item Name</label>
-  <br />
-  <input type="text" id="edit-form-inventory-name" name="name" placeholder="{{inventory.name}}" required />
-  <br />
-  {{! Category }}
-  <label for="category">Category</label>
-  <br />
-  <input
-    type="text"
-    id="edit-form-inventory-category"
-    name="category"
-    placeholder="{{inventory.category}}"
-    required
-  />
-  <br />
-  {{! Item Price }}
-  <label for="price">Item Price</label>
-  <br />
-  <input type="number" id="edit-form-inventory-price" name="price" placeholder="{{inventory.price}}" required />
-  <br />
-  {{! Inventory Count }}
-  <label for="counts">Inventory Count</label>
-  <br />
-  <input type="number" id="edit-form-inventory-count" name="counts" placeholder="{{inventory.counts}}"required />
-  <br />
-  {{! Image URL }}
-  <label for="image">Image URL</label>
-  <br />
-  <input type="url" id="edit-form-inventory-image" name="image" required />
-  <br />
-  {{! Description }}
-  <label for="description">Description</label>
-  <br />
-  <input
-    type="text"
-    id="edit-form-inventory-description"
-    name="description"
-    required
-  />
-  <br />
+<section class="form-container">
+  <div class="add-item-box">
+    <h2>Edit Inventory Item</h2>
+    <div class="formBox">
+      <form onsubmit="editItem({{inventory.id}})">
+        {{! Item Name }}
+        <div class="inputBox">
+          <span><label for="name">Item Name</label></span>
+          <input
+            type="text"
+            id="edit-form-inventory-name"
+            name="name"
+            placeholder="{{inventory.name}}"
+            value="{{inventory.name}}"
+            required
+          />
 
-  {{! Buttons }}
-  <a class="" href="/stockhome/inventories/">Cancel</a>
-  <button type="submit" id="edit-submit">Submit</button>
-</form>
+        </div>
+        {{! Category }}
+        <div class="inputBox">
+          <span><label for="category">Category</label></span>
+          <select name="category" id="edit-form-inventory-category" required>
+            <option value="">--Please choose a category--</option>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
+          </select>
+        </div>
+        {{! Item Price }}
+        <div class="inputBox">
+          <span><label for="price">Item Price</label></span>
+          <input
+            type="number"
+            id="edit-form-inventory-price"
+            name="price"
+            value="{{inventory.price}}"
+            required
+          />
+        </div>
+        {{! Inventory Count }}
+        <div class="inputBox" id="counts-imageUrl">
+          <div id="edit-countsBox">
+            <span><label for="counts">Inventory Count</label></span>
+            <input
+              type="number"
+              id="edit-form-inventory-count"
+              name="counts"
+              value="{{inventory.counts}}"
+              required
+            />
+          </div>
+          <div id="edit-imageUrlBox">
+            <span><label for="image">Image URL</label></span>
+            <input
+              type="url"
+              id="edit-form-inventory-image"
+              name="image"
+              value="{{inventory.image}}"
+              required
+            />
+          </div>
+
+        </div>
+        {{! Image URL }}
+        <div class="inputBox">
+
+        </div>
+        {{! Description }}
+        <div class="inputBox">
+          <span><label for="description">Description</label></span>
+
+          <input
+            type="text"
+            id="edit-form-inventory-description"
+            name="description"
+            value="{{inventory.description}}"
+            required
+          />
+        </div>
+
+        {{! Buttons }}
+        <div class="inputBox" id="form-cta">
+          <button class="modal-button"><a
+              class=""
+              href="/stockhome/inventories/"
+            >Cancel</a>
+          </button>
+          <button
+            class="modal-confirm"
+            id="edit-submit"
+            type="submit"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/add-inventory-form.js"></script>
+</section>
 
 <script src="/edit-inventory-form.js"></script>
