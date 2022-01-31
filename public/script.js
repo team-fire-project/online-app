@@ -7,7 +7,18 @@ menu.addEventListener("click", function () {
 });
 
 const getSearch = () => {
- const item = document.getElementById("search-input");
-  console.log(item.value);
-  window.location.assign(`/stockhome/inventories/search/${item.value}`);
+  let searchitem = document.getElementById("search-input").value;
+  searchitem = searchitem.toLowerCase();
+  let items = document.getElementsByClassName("inventory");
+  let item = document.getElementsByClassName("item-name");
+
+  console.log(searchitem)
+
+  for(i=0; i<item.length; i++) {
+      if (!item[i].innerHTML.toLowerCase().includes(searchitem)) {
+          items[i].style.display="none";
+      } else {
+          items[i].style.display = "unset";
+      }
+  }
 };
