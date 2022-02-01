@@ -255,13 +255,6 @@ footer .logo {
 }
 
 .container .card {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-items: center;
-  column-gap: 10px;
-  row-gap: 10px;
-  padding-left: 20px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -270,16 +263,9 @@ footer .logo {
 }
 
 .card .inventory {
-  /* 
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap; */
   display: unset;
   width: 350px;
   padding: 0px 10px;
-  /* padding: 0;
-  border-style: solid;
-  border-width: 1px; */
 }
 
 .inventory img {
@@ -287,13 +273,6 @@ footer .logo {
   border-radius: 20px;
   margin-bottom: 4px;
 }
-
-/* .block {
-  /* display: block;
-  flex-direction: column;
-  width: 30vw;
-  float: left; 
-} */
 
 #item-info-block {
   display: flex;
@@ -304,10 +283,6 @@ footer .logo {
 #item-info-block .button {
   color: #96d7c5;
 }
-
-/* .inventory span {
-  width: 4rem;
-}  */
 
 .inventory span h3 {
   color: #96d7c5;
@@ -334,8 +309,6 @@ footer .logo {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin: 2rem 0; */
-  /* margin-bottom: 20rem; */
   padding: 0 2rem;
 }
 
@@ -357,7 +330,6 @@ footer .logo {
 .img-section {
   height: 40%;
   width: 100%;
-  /* background: linear-gradient(rgb(45, 0, 128), rgb(42, 75, 55)); */
   background-size: cover;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -368,7 +340,6 @@ footer .logo {
 .img-section img {
   height: 100%;
   width: 100%;
-  /* padding: 0.2rem; */
   object-fit: cover;
 }
 
@@ -399,11 +370,9 @@ footer .logo {
   color: black;
   border-radius: 8px;
   box-shadow: 4px 4px 4px gray inset;
-  /* align-content: ; */
 }
 
 /* delete modal - css */
-
 .modal-container {
   z-index: 9999;
   position: fixed;
@@ -451,7 +420,6 @@ footer .logo {
 }
 
 /* edit-delete-count-css */
-
 .ctas button a {
   text-decoration: none;
   color: black;
@@ -493,7 +461,6 @@ footer .logo {
 .item-container .view-all:active,
 .modal-confirm:active {
   transform: scale(0.98);
-  /* Scaling button to 0.98 to its original size */
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   /* Lowering the shadow */
 }
@@ -515,7 +482,6 @@ footer .logo {
 }
 
 /* Sign in page css */
-
 .form-container {
   position: relative;
   width: 100%;
@@ -530,18 +496,6 @@ footer .logo {
   width: 50%;
   height: 100%;
 }
-
-/* .form-container .imageBox img:before{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%; 
-  background: linear-gradient(225deg,rgb(26, 54, 33), rgb(94, 75, 109) );
-  z-index: 1;
-  mix-blend-mode: screen;
-} */
 
 .form-container .imageBox img {
   position: absolute;
@@ -567,7 +521,6 @@ footer .logo {
   font-size: 1.9em;
   text-transform: capitalize;
   margin-bottom: 20px;
-  /* border-bottom: 1px solid #356e5d; */
   display: inline-block;
   letter-spacing: 1px;
   margin: 5px 10px;
@@ -600,7 +553,6 @@ footer .logo {
   font-size: 1.9em;
   text-transform: capitalize;
   margin-bottom: 20px;
-  /* border-bottom: 1px solid #356e5d; */
   display: inline-block;
   letter-spacing: 1px;
 }
@@ -741,9 +693,7 @@ footer .logo {
 }
 
 .contentBox .inputBox .forgot-pass:hover,
-/* .contentBox .inputBox p:hover, */
 .contentBox .inputBox p a:hover {
-  /* text-decoration: none; */
   color: var(--bodygreen);
   font-size: 17px;
   transition: all 0.3s ease-in-out;
@@ -772,7 +722,6 @@ footer .logo {
   .img-section {
     height: 100%;
     width: 100%;
-    /* background: linear-gradient(rgb(45, 0, 128), rgb(42, 75, 55)); */
     background-size: cover;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -793,8 +742,6 @@ footer .logo {
 
   .overviews {
     height: 60%;
-    /* border-bottom: 1px solid yellowgreen;
-    border-top: 1px solid yellowgreen; */
     margin: 1rem;
     display: flex;
     flex-direction: column;
@@ -814,10 +761,6 @@ footer .logo {
 
 /* media query for main page */
 @media (max-width: 1025px) {
-  /* .item-container {
-    display: flex;
-    flex-direction: column;
-  } */
   .form-container .imageBox {
     display: none;
   }
@@ -847,12 +790,6 @@ footer .logo {
   .container {
     display: flex;
     flex-direction: column;
-    /* 
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    */
   }
 
   .container .card {
@@ -873,11 +810,6 @@ footer .logo {
     padding-left: 80px;
     font-size: 30px;
     display: none;
-    /* flex: 2;
-    text-align: center;
-    justify-content: center;
-    transition: all 0.9s ease-out;
-    padding-left: 120px; */
   }
 
   nav .nav-items {
@@ -921,7 +853,6 @@ footer .logo {
   nav .cta {
     display: block;
     margin: 0 5px;
-    /* justify-self: flex-end; */
   }
 
   nav .menu-icon span {
@@ -947,12 +878,6 @@ footer .logo {
     color: var(--lightgray);
     font-size: 1em;
     font-weight: 600;
-    /* overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  white-space: nowrap;
-  line-height: 1.5em; 
-  max-height: 3em; */
   }
 
   .form-container .add-item-box .formBox .inputBox span {
@@ -967,20 +892,6 @@ footer .logo {
   .form-container {
     position: unset;
   }
-
-  /* .form-container .contentBox .formBox .inputBox input,
-.form-container .contentBox .formBox .inputBox button {
-  width: 250px;
-  padding: 7px 20px;
-  outline: none;
-  font-weight: 400;
-  border: 1px solid var(--bodygreen);
-  font-size: 16px;
-  color: var(--darkgray);
-  background: transparent;
-  border-radius: 12px;
-  box-shadow: 1px 2px 4px 1px rgba(94, 93, 93, 0.24);
-} */
 
   .form-container .add-item-box .formBox .inputBox,
   #counts-imageUrl,
