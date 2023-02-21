@@ -44,3 +44,12 @@ An online inventory shop for the product lines. In this shop, user can view as g
 <img width="1440" alt="stockhome test item render on homepage" src="https://user-images.githubusercontent.com/80661503/219976716-456759f8-7465-437a-a120-2da7f0bc4d26.png">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Planning
+<img width="1440" alt="online-app planning" src="https://user-images.githubusercontent.com/80661503/220218814-d7b0f056-abbd-4d49-ab4a-12503da9599d.png">
+<img width="1440" alt="online-app kanban board" src="https://user-images.githubusercontent.com/80661503/220219346-e2464673-4971-4550-91e0-1e6d413266f5.png">
+<img width="1440" alt="online-app timeline" src="https://user-images.githubusercontent.com/80661503/220219375-21e683b7-dd53-4913-910f-8dc31bd5f77d.png">
+<img width="1440" alt="online-app uml" src="https://user-images.githubusercontent.com/80661503/220219406-02a80f62-eb5e-4109-9e5f-875b90ae5e88.png">
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
